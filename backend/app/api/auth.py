@@ -39,7 +39,7 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
         value=f"Bearer {access_token}",
         httponly=True,
         secure=settings.is_production,
-        samesite="lax",
+        samesite="none",
         max_age=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60
     )
     
