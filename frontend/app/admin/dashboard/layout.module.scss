@@ -1,0 +1,27 @@
+.dashboardWrapper {
+  --font-sans: var(--font-admin-inter), sans-serif;
+  --font-serif: var(--font-admin-inter), sans-serif;
+  
+  display: grid;
+  height: 100vh;       /* Locked exactly to viewport height */
+  background-color: var(--color-bg);
+  width: 100vw;        /* Lock width to viewport */
+  overflow: hidden;    /* Kills the main browser window scrollbar */
+  font-family: var(--font-sans);
+
+  @media (min-width: 769px) {
+    grid-template-columns: 260px minmax(0, 1fr); 
+  }
+}
+
+.mainContent {
+  padding: 2rem;
+  height: 100vh;       /* Force content pane to match viewport height */
+  overflow-y: auto;    /* Scrollbar appears ONLY inside this specific pane */
+  width: 100%;
+  box-sizing: border-box;
+  
+  @media (max-width: 768px) {
+    padding-top: 5rem;
+  }
+}

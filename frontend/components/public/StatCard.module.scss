@@ -1,0 +1,37 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  background-color: var(--color-bg-alt); // Pure white from your variables
+  padding: $space-6;
+  border-radius: $border-radius;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); // Soft, premium shadow
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 168, 168, 0.08); // Subtle teal tint on hover
+  }
+}
+
+.value {
+  font-family: var(--font-sans);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 $space-2 0;
+  line-height: 1.1;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.4;
+}

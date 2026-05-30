@@ -1,0 +1,126 @@
+@use '@/styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  // Hardcoded to maintain the dark grounding regardless of the theme toggle
+  background-color: #1A2525; 
+  color: #D1D9D9; 
+  padding-block: $space-16 $space-6;
+  border-top: 1px solid #2D4040;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+  margin-bottom: $space-12;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    // 5 columns total. Brand gets 2 fractions, the other 4 get 1 each.
+    grid-template-columns: 2fr 1fr 1fr 1fr; 
+  }
+}
+// .grid {
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   gap: $space-10;
+//   margin-bottom: $space-12;
+
+//   @include md {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+
+//   @include lg {
+//     // Column 1 gets 2 fractions of space, the rest get 1. 
+//     // This gives your brand description room to breathe.
+//     grid-template-columns: 2fr 1fr 1fr 1fr; 
+//   }
+// }
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  .logo {
+    font-family: var(--font-serif); // Using the Playwrite_GB_S you confirmed
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: $space-3;
+  margin-top: $space-2;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius-sm;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #D1D9D9;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: #FFF;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.linkCol {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  h4 {
+    color: #FAFAFA;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    li a, li span {
+      color: #D1D9D9;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    li a:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.bottomBar {
+  padding-top: $space-6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8A9999;
+}

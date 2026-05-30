@@ -1,0 +1,7 @@
+@use '../../styles/mixins' as *;
+
+.container {
+  @include container; // This pulls in your max-width and padding from your mixins file
+  position: relative;
+  width: 100%;
+}

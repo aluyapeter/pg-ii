@@ -1,0 +1,146 @@
+/* --- Mobile Header (Hamburger Menu) --- */
+.mobileHeader {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 40;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.hamburgerBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+/* --- Dark Overlay (Mobile Only) --- */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 45;
+  backdrop-filter: blur(2px);
+
+  &.open {
+    display: block;
+  }
+
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+}
+
+/* --- The Sidebar / Drawer --- */
+.sidebar {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  
+  // Desktop configuration
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+
+  // Mobile drawer configuration
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: -100%; // Hide off-screen by default
+    width: 260px;
+    height: 100%;
+    z-index: 50;
+    transition: left 0.3s ease-in-out;
+
+    &.open {
+      left: 0; // Slide in
+    }
+  }
+}
+
+.brand {
+  font-family: var(--font-serif); // Using your Playwrite cursive font
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navItem {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-border);
+    color: var(--color-text);
+  }
+}
+
+.active {
+  background-color: var(--color-primary);
+  color: #ffffff; // Strict white text on top of the teal brand colour
+
+  &:hover {
+    background-color: var(--color-primary); 
+    opacity: 0.9;
+  }
+}
+
+/* --- NEW: Logout Button & Footer --- */
+
+.sidebarFooter {
+  margin-top: auto; 
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background-color: transparent;
+  
+  color: var(--color-error, #D32F2F); 
+  border: 1px solid var(--color-error, #D32F2F);
+  
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-error, #D32F2F);
+    color: #ffffff;
+  }
+}
