@@ -22,7 +22,8 @@ app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
 
 origins = [
     "http://127.0.0.1:3000",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://pg-6r3k6e62g-aluyapeter7gmailcoms-projects.vercel.app"
 ]
 
 frontend_url = settings.FRONTEND_URL
